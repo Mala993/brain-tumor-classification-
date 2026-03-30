@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Defining the data directories
-train_dir = r"data/Training"
-test_dir = r"data/Testing"
+train_dir = r"D:\Dataset\Training"
+test_dir = r"D:\Dataset\Testing"
 
 
 train_datagen = ImageDataGenerator(rescale=1./255)
@@ -80,9 +80,9 @@ print('Test accuracy:', test_acc)
 
 #saving the model 
 from tensorflow import keras
-model.save("model/BrainTumorProject.keras")
+model.save(r"D:\Dataset\BrainTumorProject.keras")
 
-my_model =tf.keras.models.load_model("model/BrainTumorProject.keras")
+my_model =tf.keras.models.load_model(r"D:\Dataset\BrainTumorProject.keras")
 
 
 # Getting 10 random images from the test set
@@ -119,7 +119,7 @@ num_epochs = len(history.history['loss'])
 acc = test_acc
 
 plt.savefig(
-   f"results/BrainTumor_epoch{num_epochs}_acc{acc:.2f}.png",
+    rf"D:\Results\BrainTumor_epoch{num_epochs}_acc{acc:.2f}.png",
     dpi=300,
     bbox_inches='tight'
 )
