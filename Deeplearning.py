@@ -3,6 +3,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import numpy as np
 import matplotlib.pyplot as plt
 
+#Dataset download from: https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset 
+
 # Defining the data directories
 train_dir = r"D:\Dataset\Training"
 test_dir = r"D:\Dataset\Testing"
