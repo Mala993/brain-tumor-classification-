@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Defining the data directories
-train_dir = r"D:\Mohammad\PyMo\ROI\Data set\Brain Tumor Dataset\Training"
-test_dir = r"D:\Mohammad\PyMo\ROI\Data set\Brain Tumor Dataset\Testing"
+train_dir = r"data/Training"
+test_dir = r"data/Testing"
 
 
 train_datagen = ImageDataGenerator(rescale=1./255)
@@ -66,7 +66,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 # Training the model
 history = model.fit(
     train_generator,
-    epochs=20,# 1,10,20
+    epochs=1,# 1,10,20
     validation_data=test_generator 
 )
 
@@ -80,9 +80,9 @@ print('Test accuracy:', test_acc)
 
 #saving the model 
 from tensorflow import keras
-model.save(r"D:\Mohammad\PyMo\ROI\Data set\Brain Tumor Dataset\BrainTumorProject.keras")
+model.save("model/BrainTumorProject.keras")
 
-my_model =tf.keras.models.load_model(r"D:\Mohammad\PyMo\ROI\Data set\Brain Tumor Dataset\BrainTumorProject.keras")
+my_model =tf.keras.models.load_model("model/BrainTumorProject.keras")
 
 
 # Getting 10 random images from the test set
@@ -119,7 +119,7 @@ num_epochs = len(history.history['loss'])
 acc = test_acc
 
 plt.savefig(
-    rf"D:\Mohammad\PyMo\ROI\Data set\Brain Tumor Dataset\BrainTumor_epoch{num_epochs}_acc{acc:.2f}.png",
+   f"results/BrainTumor_epoch{num_epochs}_acc{acc:.2f}.png",
     dpi=300,
     bbox_inches='tight'
 )
